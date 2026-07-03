@@ -1,0 +1,13 @@
+TC-ID,Verifies,Level,Method,Tier,Parameters,Expected,Automated,Status
+TC-001,SR-001;LLR-001,Unit,Test,Smoke,"config=missing; config=valid+envtoken","Missing config throws naming the example; valid config returns token equal to MCKEEPER_FEED_TOKEN.",Yes,Done
+TC-002,SR-002;LLR-003,Unit,Test,Smoke,"whatifpost=true","Payload JSON contains check/ok/note and Posted=false; no HTTP call made.",Yes,Done
+TC-003,SR-003;LLR-004,Unit,Test,Smoke,"port=closed","Up=false with a no-response note.",Yes,Done
+TC-004,SR-003;LLR-005,Unit,Test,Smoke,"jar=paper-26.2-34.jar; api=error","Parses version 26.2/build 34; Ok=false with note when API unreachable/errors (no silent green).",Yes,Done
+TC-005,SR-002;SR-003;LLR-006,Integration,Test,Full,"whatifpost=true; live-share","Posts server-up + version (+plugins) as ok values with notes; exceptions yield ok=false posts.",Yes,Done
+TC-006,SR-004;LLR-010,Unit,Test,Smoke,"jar=CoreProtect","Returns Name=CoreProtect, Version, ApiVersion, Parsed=true.",Yes,Done
+TC-007,SR-004;LLR-011,Integration,Test,Full,"serverroot=live-share","Every jar mapped to a Source; unmapped recorded honestly; output has no secrets (redaction check).",Yes,Done
+TC-008,SR-006;LLR-012,Unit,Test,Full,"inventory; mcver=26.2","NeedsUpdate true only when normalized versions differ; unmapped/fork rows carry a human-check Reason.",Yes,Done
+TC-009,SR-006;LLR-013,Unit,Test,Full,"apiversion=1.16 vs mc=26.2; apiversion=99 vs mc=26.2","Test-ApiVersionCompatible true when api<=mc, false when api>mc.",Yes,Done
+TC-010,SR-006;LLR-013,Integration,Test,Release,"plan=WorldGuard; execute=false","Staged+Verified true, Swapped false, DRY-RUN note; nothing written under ServerRoot.",Yes,Done
+TC-011,SR-005;LLR-020,Integration,Test,Full,"serverroot=live-share; worlds=false","Archive created; contains server.properties + plugin yml; no world region files; no jars.",Yes,Done
+TC-012,SR-007;LLR-030,Integration,Test,Release,"inventory=forks","Returns a status per fork from GitHub; 'unknown' on rate-limit/network failure; never pushes.",Yes,Done
