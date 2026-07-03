@@ -15,7 +15,7 @@ param(
 Import-Module (Join-Path $PSScriptRoot '..\src\MinecraftKeeper\MinecraftKeeper.psd1') -Force
 $cfg = Import-KeeperConfig -Path $ConfigPath
 
-$ver = Get-McPaperCurrency -ServerRoot $cfg.ServerRoot -Project ($cfg.PaperProject ?? 'paper') -ApiBase ($cfg.PaperApiBase ?? 'https://api.papermc.io/v2')
+$ver = Get-McPaperCurrency -ServerRoot $cfg.ServerRoot -Project ($cfg.PaperProject ?? 'paper') -ApiBase ($cfg.PaperApiBase ?? 'https://fill.papermc.io/v3')
 $mcVer = $ver.InstalledVersion
 if (-not $mcVer) { throw "Cannot determine server MC version (jar parse: $($ver.Note)). Aborting update to avoid an unsafe swap." }
 

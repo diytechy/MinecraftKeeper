@@ -38,7 +38,7 @@ function Invoke-McKeeperCheck {
     & $report $checks.ServerUp ([bool]$status.Up) $status.Note | Out-Null
 
     # --- 2) Paper version currency ---
-    $apiBase = if ($cfg.PaperApiBase) { $cfg.PaperApiBase } else { 'https://api.papermc.io/v2' }
+    $apiBase = if ($cfg.PaperApiBase) { $cfg.PaperApiBase } else { 'https://fill.papermc.io/v3' }
     $project = if ($cfg.PaperProject) { $cfg.PaperProject } else { 'paper' }
     $ver = Get-McPaperCurrency -ServerRoot $cfg.ServerRoot -Project $project -ApiBase $apiBase
     $results.Version = $ver

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="8" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2026-07-03" time="17:52:32">
+  <environment clr-version="9.0.14" cwd="C:\Projects\MinecraftKeeper" os-version="10.0.26200" platform="Microsoft Windows 11 Pro|C:\WINDOWS|\Device\Harddisk1\Partition3" nunit-version="2.5.8.0" user="Peter" user-domain="DESKTOP-OFFICE" machine-name="DESKTOP-OFFICE" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Success" success="True" time="1.6529" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\Projects\MinecraftKeeper\tests\MinecraftKeeper.Tests.ps1" executed="True" result="Success" success="True" time="1.6529" asserts="0" description="C:\Projects\MinecraftKeeper\tests\MinecraftKeeper.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Import-KeeperConfig (SR-001/TC-001)" executed="True" result="Success" success="True" time="0.1614" asserts="0" description="Import-KeeperConfig (SR-001/TC-001)">
+            <results>
+              <test-case description="throws a helpful error when no config is found" name="Import-KeeperConfig (SR-001/TC-001).throws a helpful error when no config is found" time="0.0811" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="overrides the NagLight token from MCKEEPER_FEED_TOKEN" name="Import-KeeperConfig (SR-001/TC-001).overrides the NagLight token from MCKEEPER_FEED_TOKEN" time="0.0271" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Send-NagLightFeed (SR-002/TC-002)" executed="True" result="Success" success="True" time="0.1892" asserts="0" description="Send-NagLightFeed (SR-002/TC-002)">
+            <results>
+              <test-case description="in -WhatIfPost mode returns Posted=false and does not POST" name="Send-NagLightFeed (SR-002/TC-002).in -WhatIfPost mode returns Posted=false and does not POST" time="0.0227" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Get-PluginManifest (SR-004/TC-006)" executed="True" result="Success" success="True" time="0.2486" asserts="0" description="Get-PluginManifest (SR-004/TC-006)">
+            <results>
+              <test-case description="parses name/version/api-version from a jar plugin.yml" name="Get-PluginManifest (SR-004/TC-006).parses name/version/api-version from a jar plugin.yml" time="0.0448" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="records a note (not a crash) for a jar without plugin.yml" name="Get-PluginManifest (SR-004/TC-006).records a note (not a crash) for a jar without plugin.yml" time="0.01" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Get-McServerStatus (SR-003/TC-003)" executed="True" result="Success" success="True" time="1.088" asserts="0" description="Get-McServerStatus (SR-003/TC-003)">
+            <results>
+              <test-case description="reports Up=false for a closed port" name="Get-McServerStatus (SR-003/TC-003).reports Up=false for a closed port" time="0.834" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Test-ApiVersionCompatible (SR-006/TC-009)" executed="True" result="Success" success="True" time="1.1301" asserts="0" description="Test-ApiVersionCompatible (SR-006/TC-009)">
+            <results>
+              <test-case description="accepts api-version &lt;= server MC version and rejects greater" name="Test-ApiVersionCompatible (SR-006/TC-009).accepts api-version &lt;= server MC version and rejects greater" time="0.0365" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Resolve-ActivePaperJar (SR-003/TC-004)" executed="True" result="Success" success="True" time="1.1631" asserts="0" description="Resolve-ActivePaperJar (SR-003/TC-004)">
+            <results>
+              <test-case description="prefers the jar named on an uncommented START.bat line" name="Resolve-ActivePaperJar (SR-003/TC-004).prefers the jar named on an uncommented START.bat line" time="0.0262" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
