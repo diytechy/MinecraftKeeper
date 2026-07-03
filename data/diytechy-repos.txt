@@ -1,0 +1,45 @@
+# Snapshot of github.com/diytechy public repos (owner type), captured 2026-07-03.
+# Used by Get-McPluginInventory to match an installed plugin to Peter's personal
+# fork by name (best-effort). Refresh with:
+#   curl -s "https://api.github.com/users/diytechy/repos?per_page=100&type=owner" \
+#     | python -c "import json,sys;print('\n'.join(sorted(r['name'] for r in json.load(sys.stdin))))"
+# Public repo names only — no secrets.
+AuroTech-github
+BigPicLinkHTMLGenerator
+BiomeTool
+BubblesOnChunkGen
+CHIMERA
+Chunky
+CoreProtect
+DOSBoxStagingConfigs
+DefaultMetapack
+DendryTerra
+FileBackup
+Geyser
+Hydraxia
+LaunchBoxAppScripts
+MinecraftKeeper
+MiniPC-Deployer
+Multiverse-Core
+NoiseTool
+Paper
+PowerPete
+PublicWebsiteTemplate
+ReimagEND
+Seismic
+Tartarus
+Tectonic
+Terra
+Terra-biome-provider-pipeline
+Ubuntu-ROS2-ZED-Setup-Bash-Scripts
+WorldGuard
+ai-native-toolkit
+ai-template
+auroleap.github.io
+cloud-minecraft
+cloud-minecraft-modded
+diytechy.github.io
+frontend-sdl-cpp
+projectm
+wirehole
+zed-ros2-wrapper
