@@ -12,7 +12,7 @@ param(
     [switch]$Execute
 )
 
-Import-Module (Join-Path $PSScriptRoot '..\src\MinecraftKeeper\MinecraftKeeper.psd1') -Force
+Import-Module (Join-Path $PSScriptRoot '../src/MinecraftKeeper/MinecraftKeeper.psd1') -Force
 $cfg = Import-KeeperConfig -Path $ConfigPath
 
 $ver = Get-McPaperCurrency -ServerRoot $cfg.ServerRoot -Project ($cfg.PaperProject ?? 'paper') -ApiBase ($cfg.PaperApiBase ?? 'https://fill.papermc.io/v3')
@@ -26,7 +26,7 @@ $plan = Get-McPluginUpdatePlan -Inventory $inv -McVersion $mcVer
 Write-Host "`n=== Update plan (MC $mcVer) ==="
 $plan | Format-Table Name, Installed, Latest, NeedsUpdate, Source, Reason -AutoSize
 
-$staging = $cfg.StagingDir ?? (Join-Path $PSScriptRoot '..\out\staging')
+$staging = $cfg.StagingDir ?? (Join-Path $PSScriptRoot '../out/staging')
 $results = Invoke-McPluginUpdate -Plan $plan -ServerRoot $cfg.ServerRoot -StagingDir $staging -McVersion $mcVer -Execute:$Execute
 
 Write-Host "`n=== Update results ($([bool]$Execute ? 'EXECUTED' : 'DRY-RUN')) ==="

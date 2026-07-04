@@ -14,7 +14,7 @@ param(
     [switch]$WhatIfPost
 )
 
-Import-Module (Join-Path $PSScriptRoot '..\src\MinecraftKeeper\MinecraftKeeper.psd1') -Force
+Import-Module (Join-Path $PSScriptRoot '../src/MinecraftKeeper/MinecraftKeeper.psd1') -Force
 $cfg = Import-KeeperConfig -Path $ConfigPath
 
 $includeWorldsEff = $IncludeWorlds -or [bool]$cfg.IncludeWorlds

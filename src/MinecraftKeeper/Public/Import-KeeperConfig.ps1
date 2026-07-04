@@ -20,7 +20,10 @@ function Import-KeeperConfig {
     if (-not $Path) {
         # Default to a real config beside the module's config/ dir if present.
         $repoRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $PSScriptRoot))
-        $candidate = Join-Path $repoRoot 'config\keeper.config.psd1'
+        # Forward slashes only: PowerShell's provider layer normalizes '\' to '/' on
+        # Linux for Join-Path output, but writing '/' directly is explicit and
+        # doesn't rely on that normalization (WI-10.16 cross-platform hardening).
+        $candidate = Join-Path $repoRoot 'config/keeper.config.psd1'
         if (Test-Path $candidate) { $Path = $candidate }
     }
     if (-not $Path -or -not (Test-Path $Path)) {

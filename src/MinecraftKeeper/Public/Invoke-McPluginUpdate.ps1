@@ -32,7 +32,19 @@ function Invoke-McPluginUpdate {
         try {
             # --- download to staging ---
             $stagedJar = Join-Path $StagingDir ("{0}__{1}.jar" -f ($item.Name -replace '[^\w.-]','_'), ($item.Latest -replace '[^\w.-]','_'))
-            Invoke-WebRequest -Uri $item.DownloadUrl -OutFile $stagedJar -TimeoutSec 60 -ErrorAction Stop
+            if ($item.DownloadUrl -match '^file://') {
+                # TEST SEAM (WI-10.16 sim validation): a file:// DownloadUrl copies a
+                # local candidate jar instead of fetching over HTTP. Production plans
+                # from Get-McPluginUpdatePlan only ever emit https Modrinth URLs, so
+                # this branch never fires against a live-server run; it exists so the
+                # Mini-serv-sim fixture (fictional plugin names with no real Modrinth
+                # listing) can still exercise the real stage/verify/swap/rollback path
+                # with a locally-manufactured candidate jar.
+                $localPath = ([Uri]$item.DownloadUrl).LocalPath
+                Copy-Item -Path $localPath -Destination $stagedJar -Force
+            } else {
+                Invoke-WebRequest -Uri $item.DownloadUrl -OutFile $stagedJar -TimeoutSec 60 -ErrorAction Stop
+            }
             $r.Staged = $true
 
             # --- verify: hash ---

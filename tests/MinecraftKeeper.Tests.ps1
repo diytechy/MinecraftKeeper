@@ -5,7 +5,7 @@
 # Release/Full-tier and run by hand — see docs/status.md "What was executed".
 
 BeforeAll {
-    $moduleManifest = Join-Path $PSScriptRoot '..\src\MinecraftKeeper\MinecraftKeeper.psd1'
+    $moduleManifest = Join-Path $PSScriptRoot '../src/MinecraftKeeper/MinecraftKeeper.psd1'
     Import-Module $moduleManifest -Force
     $script:tmp = Join-Path ([IO.Path]::GetTempPath()) ("mckeeper-tests-" + [guid]::NewGuid())
     New-Item -ItemType Directory -Path $script:tmp -Force | Out-Null

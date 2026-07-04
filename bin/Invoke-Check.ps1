@@ -14,6 +14,6 @@ param(
     [switch]$WhatIfPost
 )
 
-Import-Module (Join-Path $PSScriptRoot '..\src\MinecraftKeeper\MinecraftKeeper.psd1') -Force
+Import-Module (Join-Path $PSScriptRoot '../src/MinecraftKeeper/MinecraftKeeper.psd1') -Force
 $result = Invoke-McKeeperCheck -ConfigPath $ConfigPath -IncludePlugins:$IncludePlugins -WhatIfPost:$WhatIfPost
 $result | ConvertTo-Json -Depth 5

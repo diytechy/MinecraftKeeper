@@ -13,12 +13,12 @@ param(
     [string]$OutDir
 )
 
-Import-Module (Join-Path $PSScriptRoot '..\src\MinecraftKeeper\MinecraftKeeper.psd1') -Force
+Import-Module (Join-Path $PSScriptRoot '../src/MinecraftKeeper/MinecraftKeeper.psd1') -Force
 if (-not $ServerRoot) {
     $cfg = Import-KeeperConfig -Path $ConfigPath
     $ServerRoot = $cfg.ServerRoot
 }
-if (-not $OutDir) { $OutDir = Join-Path $PSScriptRoot '..\out' }
+if (-not $OutDir) { $OutDir = Join-Path $PSScriptRoot '../out' }
 
 $items = Get-McPluginInventory -ServerRoot $ServerRoot -OutDir $OutDir
 $items | Format-Table Jar, Name, Version, Fork, Source -AutoSize
