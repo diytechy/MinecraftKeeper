@@ -12,7 +12,7 @@ Live coordination for the gated process (see [process.md](process.md)). Keep the
   the spine is young (ADOPTING.md "Backfill from the boundary").
 - **Round:** 1
 - **Open items:**
-  - **Needs Peter:**
+  - **Needs the Owner:**
     - OI-1 — review + `git push` all commits (agent sessions lack the push key) →
       whole repo.
     - OI-2 — confirm the NagLight `check` ids (`mc-server-up`, `mc-update`,
@@ -25,12 +25,12 @@ Live coordination for the gated process (see [process.md](process.md)). Keep the
     - OI-4 (WI-10.16) — there is no formal `Restore-McPlugin`/rollback cmdlet;
       the manual recovery path is "copy the timestamped `.bak` from
       `<StagingDir>/jar-backups/` back over `plugins/<jar>`", which this session
-      proved byte-identical against the sim fixture. Flagging in case Peter wants
+      proved byte-identical against the sim fixture. Flagging in case the Owner wants
       a proper `Restore-McPluginBackup` cmdlet wrapping that — not built
       unrequested (no gold-plating).
   - **In flight:** none (session complete).
 - **Assumptions (unattended):** see the list below — confirm/revert at next gate.
-- **Next action:** Peter reviews commits and pushes; WI-10.16's V2 evidence
+- **Next action:** the Owner reviews commits and pushes; WI-10.16's V2 evidence
   (below) means the `--execute` swap+rollback path has now been run for real —
   it no longer needs a live-server trial to be trusted structurally.
 
@@ -38,13 +38,13 @@ Live coordination for the gated process (see [process.md](process.md)). Keep the
 
 - **Goal:** WI-10.7 (scaffold + status/version checker v1) and WI-10.8 (settings
   backup + plugin inventory/update automation) for the live Paper/Bukkit server.
-- **Stakeholders / end user(s):** Peter as server operator; NagLight as the
+- **Stakeholders / end user(s):** the Owner as server operator; NagLight as the
   reporting sink.
 - **Supported platforms:** Windows (PowerShell 7) first — runs on Mini-serv. A
   container path is left open (see Assumptions).
 - **Constraints:** `\\Mini-serv\...\MINECRAFT_SERVER` is READ-ONLY for agents;
   public-facing repo → sanitized examples only, no real secrets/IPs/usernames;
-  commit as `diytechy`, never Peter's personal identity; agents never push.
+  commit as `diytechy`, never the Owner's personal identity; agents never push.
 - **Non-goals (this session):** the unattended fork auto-fix pipeline; container
   packaging; live jar swaps against the production server.
 - **Definition of done:** checker + backup + inventory + update-plan run for real
@@ -71,7 +71,7 @@ Live coordination for the gated process (see [process.md](process.md)). Keep the
   `Get-Process java` corroboration, which is optional).
 - **A2 — NagLight `check` ids.** Chose `mc-server-up`, `mc-update` (reusing the
   existing feeder's id), `mc-plugins`, `mc-settings-backup`. They live in the
-  config so Peter can rename them to match his NagLight definitions (OI-2).
+  config so the Owner can rename them to match his NagLight definitions (OI-2).
 - **A3 — Staleness-ladder honesty enforced in code, not assumed.** Every check
   posts on every run and posts `ok=false` with a note on any failure; nothing
   ever fabricates `ok=true`. A dead scheduled task therefore reads stale.
@@ -80,7 +80,7 @@ Live coordination for the gated process (see [process.md](process.md)). Keep the
   "fill" API (`fill.papermc.io/v3`). This was verified live against the real
   server's build (paper-26.2-34, latest 47).
 - **A5 — Fork mapping is a committed snapshot, best-effort.** `data/diytechy-repos.txt`
-  is a point-in-time capture of Peter's public repos (refresh command in the
+  is a point-in-time capture of the Owner's public repos (refresh command in the
   file). Name-matching is fuzzy; ambiguous cases are recorded `unmapped`, never
   guessed.
 - **A6 — Update auto-download source = Modrinth (v1).** Modrinth is queried live.
@@ -90,7 +90,7 @@ Live coordination for the gated process (see [process.md](process.md)). Keep the
 - **A7 — Fork auto-fix pipeline NOT built (per the plan).** Only per-fork
   *detection* (`Get-McForkStatus`) and the documented workflow exist. Fixing
   arbitrary Java against API breakage is not yet a safe unattended op; publish
-  stays Peter-gated.
+  stays Owner-gated.
 - **A8 — Kit arch-map not ported to PowerShell.** `gen_arch_map.py` is Python-only,
   so the generated module map stays empty; the hand-written table in
   `architecture.md` is the source of truth. A `gen_arch_map.ps1` port is a
@@ -236,7 +236,7 @@ Scaffolded from the ai-template kit (minimum profile, dial=MEDIUM). Built the
 checker (WI-10.7) and backup + inventory + update automation + fork detection
 (WI-10.8), plus the fork-fix skill workflow. Ran the read-only parts for real
 against the live share; committed redacted evidence. Gate green at G1; 8 Pester
-tests pass. Handoff items OI-1..3 for Peter.
+tests pass. Handoff items OI-1..3 for the Owner.
 
 ### DRIVER — G1 — Round 1 — 2026-07-04 (WI-10.16 `--execute` validation vs Mini-serv-sim)
 Validated the write path Wave 1 couldn't touch safely, against the

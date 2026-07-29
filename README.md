@@ -3,9 +3,9 @@
 Keeps a homelab **Paper/Bukkit Minecraft server** healthy with minimal
 hand-holding: it checks that the server is up and current, backs up its
 settings on a schedule, inventories installed plugins and maps each to its
-source (Peter's forks / Modrinth / Hangar / SpigotMC), and updates them
+source (the Owner's forks / Modrinth / Hangar / SpigotMC), and updates them
 **safely** — reporting everything to the [NagLight](https://github.com/diytechy)
-dashboard. Built for Peter as server operator.
+dashboard. Built for the Owner as server operator.
 
 Safety posture: the live server directory is a **read-only** input; the only
 write to it (a plugin jar swap) is **dry-run by default** and gated behind an
@@ -36,7 +36,7 @@ A sample **redacted** inventory of the real fleet lives at
 [docs/evidence/inventory.md](docs/evidence/inventory.md). The fork-fix workflow
 (bring a personal fork current for a new MC version) is documented in
 [skills/fork-plugin-update](skills/fork-plugin-update/SKILL.md) — its publish
-step stays a human (Peter) action.
+step stays a human (the Owner) action.
 
 The root `run.{cmd,sh,command}` launchers are intentionally left inert (this is
 an operator toolkit, not a single-command app) — use the `bin\` entry points.

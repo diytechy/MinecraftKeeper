@@ -1,12 +1,12 @@
 # Get-McForkStatus.ps1 — per-fork status detection for the fork-fix pipeline (WI-10.9).
 # Implements: LLR-030 (SR-007)
 #
-# For plugins sourced from one of Peter's github.com/diytechy forks, detect where
+# For plugins sourced from one of the Owner's github.com/diytechy forks, detect where
 # the fork stands: does it have a published release, what's its latest tag, and
 # does the installed build match? This is the DETECTION half of the fork-fix
 # rung — it tells an operator (or the fork-plugin-update skill) which forks need
 # attention for a new Minecraft version. It NEVER builds, commits, or pushes;
-# the actual auto-fix + publish stays Peter-gated (see skills/fork-plugin-update).
+# the actual auto-fix + publish stays Owner-gated (see skills/fork-plugin-update).
 #
 # Read-only + best-effort: unauthenticated GitHub API (60 req/hr). A repo with no
 # releases, or a rate-limit/network failure, yields Status='unknown' with a note
@@ -49,7 +49,7 @@ function Get-McForkStatus {
                         elseif ($r.LatestRelease) { 'fork-release-no-jar' }
                         elseif ($r.LatestTag) { 'fork-tags-only-no-release' }
                         else { 'fork-no-releases-or-tags' }
-            if (-not $r.Note) { $r.Note = 'detection only — build/publish is Peter-gated (skills/fork-plugin-update)' }
+            if (-not $r.Note) { $r.Note = 'detection only — build/publish is Owner-gated (skills/fork-plugin-update)' }
         } catch {
             $r.Note += "GitHub lookup failed: $_"
         }

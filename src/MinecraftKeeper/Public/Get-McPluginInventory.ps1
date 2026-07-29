@@ -4,7 +4,7 @@
 # Read-only against <ServerRoot>\plugins. For every *.jar we read plugin.yml
 # (name/version/api-version) and resolve a SOURCE:
 #   * Fork    — a github.com/diytechy repo whose name matches the plugin/jar
-#               (Peter forks almost everything). Snapshot in data\diytechy-repos.txt.
+#               (the Owner forks almost everything). Snapshot in data\diytechy-repos.txt.
 #   * Canonical — Modrinth / Hangar / SpigotMC per data\plugin-sources.psd1.
 # When neither resolves confidently the entry is recorded Source='unmapped'
 # (honest over a guess). Emits objects; -OutDir writes inventory.json (machine)

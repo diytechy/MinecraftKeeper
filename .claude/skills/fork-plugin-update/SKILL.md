@@ -1,6 +1,6 @@
 ---
 name: fork-plugin-update
-description: Use when a new Minecraft/Paper version breaks one of Peter's personal plugin forks (github.com/diytechy) and the fork needs to be fixed and rebuilt. Covers the per-fork detection → diagnose → fix → build → verify workflow. The final publish/push to a fork repo is ALWAYS Peter-gated — this skill builds and stages, it never pushes.
+description: Use when a new Minecraft/Paper version breaks one of the Owner's personal plugin forks (github.com/diytechy) and the fork needs to be fixed and rebuilt. Covers the per-fork detection → diagnose → fix → build → verify workflow. The final publish/push to a fork repo is ALWAYS Owner-gated — this skill builds and stages, it never pushes.
 stacks: [powershell, any]
 domains: [game]
 phases: [maintenance]
@@ -13,12 +13,12 @@ scope: this-repo
 This is the **last rung** of MinecraftKeeper's automation ladder (WI-10.9). When a
 Minecraft/Paper update lands, most plugins update from their canonical source
 (handled by `Get-McPluginUpdatePlan` / `Invoke-McPluginUpdate`). The exceptions
-are the plugins Peter maintains as **personal forks** — those need source changes
+are the plugins the Owner maintains as **personal forks** — those need source changes
 to compile against the new API, then a rebuilt jar.
 
 **Hard gate — read first.** This skill's automation ends at a *verified local
 build*. Anything that mutates a fork repo — commit, tag, push, publish a release —
-is **Peter's decision, made by Peter**. An agent may prepare a branch and a diff
+is **the Owner's decision, made by the Owner**. An agent may prepare a branch and a diff
 and *describe* the release, but never runs `git push` or the GitHub release API
 against a `diytechy/*` fork. This mirrors the whole-project rule: agent sessions
 lack the push key and never self-authorize a publish.
@@ -63,17 +63,17 @@ For each candidate fork:
   version (`Test-ApiVersionCompatible`). Optionally smoke-test on a throwaway
   server instance — never the live one.
 
-## Step 4 — STOP. Hand off to Peter (the gate)
+## Step 4 — STOP. Hand off to the Owner (the gate)
 
-Present to Peter: the branch, the diff summary, the built jar path, and the verify
-result. Peter decides whether to:
+Present to the Owner: the branch, the diff summary, the built jar path, and the verify
+result. The Owner decides whether to:
 - push the branch / open the PR on `diytechy/<Fork>`,
 - tag + publish a GitHub release with the jar asset, and
 - let MinecraftKeeper's updater pick it up (once the fork publishes a jar asset,
   it becomes just another source `Get-McPluginUpdatePlan` can stage).
 
 An agent may draft all of the above as text/patches; **executing** the push or
-release is Peter's, every time.
+release is the Owner's, every time.
 
 ## What this skill deliberately does NOT do this session
 

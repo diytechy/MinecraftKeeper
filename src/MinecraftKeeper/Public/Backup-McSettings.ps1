@@ -10,7 +10,7 @@
 # one archive per run.
 #
 # NOTE: the archive necessarily contains real secrets (server.properties holds
-# rcon.password, etc.). That is fine for Peter's private backup destination — it
+# rcon.password, etc.). That is fine for the Owner's private backup destination — it
 # is exactly what a backup is for — but is WHY the destination must never be the
 # repo or a public share.
 

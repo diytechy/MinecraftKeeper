@@ -1,5 +1,5 @@
 # Snapshot of github.com/diytechy public repos (owner type), captured 2026-07-03.
-# Used by Get-McPluginInventory to match an installed plugin to Peter's personal
+# Used by Get-McPluginInventory to match an installed plugin to the Owner's personal
 # fork by name (best-effort). Refresh with:
 #   curl -s "https://api.github.com/users/diytechy/repos?per_page=100&type=owner" \
 #     | python -c "import json,sys;print('\n'.join(sorted(r['name'] for r in json.load(sys.stdin))))"

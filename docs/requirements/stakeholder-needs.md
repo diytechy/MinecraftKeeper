@@ -4,7 +4,7 @@ Owned by the **Stakeholder** hat. Plain-language needs + edge-case expectations
 for MinecraftKeeper; engineering translations live in `system-requirements.csv`
 (referenced by `SN-Refs`). Priority: **M**=Must · **S**=Should · **C**=Could.
 
-The stakeholder is **Peter as server operator**: he runs a live Paper/Bukkit
+The stakeholder is **the Owner as server operator**: he runs a live Paper/Bukkit
 homelab server and wants its health, settings backup, and plugin currency handled
 with minimal hand-holding, surfaced on the NagLight dashboard.
 
@@ -14,8 +14,8 @@ with minimal hand-holding, surfaced on the NagLight dashboard.
 |---|---|---|---|---|
 | SN-001 | See at a glance whether the server is up and running a current Paper build, reported automatically to the home dashboard. | Manual checking doesn't happen; a silent outage or stale build should be visible. | M | A scheduled checker posts fresh server-up + Paper-version items to NagLight; a checker that stops posting reads STALE, never silent-green. |
 | SN-002 | Server settings are backed up on a schedule to a safe destination. | Config loss (server.properties, plugin configs) is painful to rebuild; worlds are handled separately (they're huge). | M | A scheduled run produces a timestamped archive of settings + plugin configs at a configured destination; worlds excluded unless explicitly requested. |
-| SN-003 | Know which installed plugins are outdated and where each comes from, and update them safely. | Peter forks most plugins; a mixed fork/Modrinth/Hangar/Spigot fleet is hard to track by hand. | M | Inventory maps every jar to fork / canonical source / unmapped (honestly); updates are dry-run by default, verified before any swap, with backup + rollback. |
-| SN-004 | Bring Peter's plugin forks current for a new Minecraft version through a guided workflow. | When MC updates, forked plugins need source fixes + rebuilds; this is the hardest, least-automatable rung. | S | Per-fork status is detected automatically; the fix/build workflow is documented; publishing to a fork repo stays a human (Peter) action. |
+| SN-003 | Know which installed plugins are outdated and where each comes from, and update them safely. | The Owner forks most plugins; a mixed fork/Modrinth/Hangar/Spigot fleet is hard to track by hand. | M | Inventory maps every jar to fork / canonical source / unmapped (honestly); updates are dry-run by default, verified before any swap, with backup + rollback. |
+| SN-004 | Bring the Owner's plugin forks current for a new Minecraft version through a guided workflow. | When MC updates, forked plugins need source fixes + rebuilds; this is the hardest, least-automatable rung. | S | Per-fork status is detected automatically; the fix/build workflow is documented; publishing to a fork repo stays a human (the Owner) action. |
 
 ## Edge-case expectations
 
