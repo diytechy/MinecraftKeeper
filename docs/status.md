@@ -71,7 +71,7 @@ Live coordination for the gated process (see [process.md](process.md)). Keep the
   `Get-Process java` corroboration, which is optional).
 - **A2 — NagLight `check` ids.** Chose `mc-server-up`, `mc-update` (reusing the
   existing feeder's id), `mc-plugins`, `mc-settings-backup`. They live in the
-  config so the Owner can rename them to match his NagLight definitions (OI-2).
+  config so the Owner can rename them to match their NagLight definitions (OI-2).
 - **A3 — Staleness-ladder honesty enforced in code, not assumed.** Every check
   posts on every run and posts `ok=false` with a note on any failure; nothing
   ever fabricates `ok=true`. A dead scheduled task therefore reads stale.

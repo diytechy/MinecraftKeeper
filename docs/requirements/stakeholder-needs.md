@@ -4,8 +4,8 @@ Owned by the **Stakeholder** hat. Plain-language needs + edge-case expectations
 for MinecraftKeeper; engineering translations live in `system-requirements.csv`
 (referenced by `SN-Refs`). Priority: **M**=Must · **S**=Should · **C**=Could.
 
-The stakeholder is **the Owner as server operator**: he runs a live Paper/Bukkit
-homelab server and wants its health, settings backup, and plugin currency handled
+The stakeholder is **the Owner as server operator**: they run a live Paper/Bukkit
+homelab server and want its health, settings backup, and plugin currency handled
 with minimal hand-holding, surfaced on the NagLight dashboard.
 
 ## Core needs
